@@ -1,0 +1,35 @@
+aid: apache-ozone
+name: Apache Ozone
+description: >-
+  Apache Ozone is a scalable, redundant, and distributed object store optimized for big data workloads. It provides an S3-compatible interface and a Hadoop-compatible file system interface for seamless integration with existing big data tools.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Object Storage
+  - S3-Compatible
+  - Hadoop
+  - Distributed Storage
+created: '2026-03-16'
+modified: '2026-03-16'
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/apache-ozone/refs/heads/main/apis.yml
+specificationVersion: '0.19'
+apis:
+  - aid: apache-ozone:apache-ozone
+    name: Apache Ozone
+    description: >-
+      Ozone provides an S3-compatible REST API for object storage operations, a Hadoop-compatible File System API (o3fs, ofs), a Java client API for bucket and key management, and a Recon REST API for cluster monitoring.
+    humanURL: https://ozone.apache.org/docs/current/
+    tags:
+      - S3
+      - REST
+      - Object Storage
+      - Hadoop
+    properties:
+      - type: Documentation
+        url: https://ozone.apache.org/docs/current/
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
