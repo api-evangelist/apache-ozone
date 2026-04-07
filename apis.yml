@@ -7,10 +7,10 @@ position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
+  - Distributed Storage
+  - Hadoop
   - Object Storage
   - S3-Compatible
-  - Hadoop
-  - Distributed Storage
 created: '2026-03-16'
 modified: '2026-03-16'
 url: >-
@@ -23,10 +23,10 @@ apis:
       Ozone provides an S3-compatible REST API for object storage operations, a Hadoop-compatible File System API (o3fs, ofs), a Java client API for bucket and key management, and a Recon REST API for cluster monitoring.
     humanURL: https://ozone.apache.org/docs/current/
     tags:
-      - S3
-      - REST
-      - Object Storage
       - Hadoop
+      - Object Storage
+      - REST
+      - S3
     properties:
       - type: Documentation
         url: https://ozone.apache.org/docs/current/
