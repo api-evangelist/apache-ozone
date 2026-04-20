@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-ozone/refs/heads/main/json-schema/apache-ozone-object-schema.json",
+  "title": "Object",
+  "description": "Object schema from Apache Ozone",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "example": "data/file.csv"
+    },
+    "lastModified": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2026-04-19T10:00:00Z"
+    },
+    "etag": {
+      "type": "string",
+      "example": "\"a1b2c3d4e5f6\""
+    },
+    "size": {
+      "type": "integer",
+      "example": 1048576
+    },
+    "storageClass": {
+      "type": "string",
+      "example": "STANDARD"
+    },
+    "owner": {
+      "$ref": "#/components/schemas/Owner"
+    }
+  }
+}

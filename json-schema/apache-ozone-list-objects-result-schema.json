@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-ozone/refs/heads/main/json-schema/apache-ozone-list-objects-result-schema.json",
+  "title": "ListObjectsResult",
+  "description": "ListObjectsResult schema from Apache Ozone",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "my-bucket"
+    },
+    "prefix": {
+      "type": "string",
+      "example": "data/"
+    },
+    "maxKeys": {
+      "type": "integer",
+      "example": 1000
+    },
+    "isTruncated": {
+      "type": "boolean",
+      "example": false
+    },
+    "nextContinuationToken": {
+      "type": "string"
+    },
+    "contents": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Object"
+      }
+    }
+  }
+}

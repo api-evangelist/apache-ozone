@@ -1,0 +1,63 @@
+vocabulary: "1.0.0"
+info:
+  provider: "Apache Ozone"
+  description: "Vocabulary for Apache Ozone S3-compatible object storage API"
+  created: "2026-04-19"
+  modified: "2026-04-19"
+operational:
+  apis:
+    - namespace: ozone
+      version: "1.4.0"
+      baseUrl: "https://localhost:9878"
+      status: active
+  resources:
+    - name: buckets
+      api: ozone
+      actions: [list, create, delete, head]
+    - name: objects
+      api: ozone
+      actions: [list, put, get, delete, head]
+  actions:
+    - name: list
+      httpMethod: GET
+      pattern: read
+    - name: put
+      httpMethod: PUT
+      pattern: write
+    - name: get
+      httpMethod: GET
+      pattern: read
+    - name: delete
+      httpMethod: DELETE
+      pattern: destructive
+  authentication:
+    schemes:
+      - type: AWS Signature V4
+        description: "S3 compatible AWS Signature authentication"
+capability:
+  workflows:
+    - name: Object Storage Workflow
+      file: capabilities/ozone-workflow.yaml
+      apis: [ozone]
+      tools: 8
+      personas: [Data Engineer, Application Developer]
+  personas:
+    - id: data-engineer
+      name: Data Engineer
+      description: "Manages data lake storage with Ozone"
+    - id: application-developer
+      name: Application Developer
+      description: "Uses S3-compatible API for application storage"
+  domains:
+    - Object Storage
+    - Distributed Storage
+    - Cloud Native
+crossReference:
+  - resource: buckets
+    operations: [list, create, delete]
+    workflows: [Object Storage Workflow]
+    personas: [Data Engineer]
+  - resource: objects
+    operations: [put, get, delete]
+    workflows: [Object Storage Workflow]
+    personas: [Application Developer, Data Engineer]

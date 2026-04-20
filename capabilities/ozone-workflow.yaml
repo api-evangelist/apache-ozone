@@ -1,0 +1,150 @@
+naftiko: "1.0.0-alpha1"
+info:
+  label: "Apache Ozone Object Storage Workflow"
+  description: "Workflow capability for managing object storage using Apache Ozone's S3-compatible API."
+  tags:
+    - Apache Ozone
+    - Object Storage
+    - Distributed Storage
+    - S3 Compatible
+  created: "2026-04-19"
+  modified: "2026-04-19"
+binds:
+  - namespace: env
+    keys:
+      OZONE_ACCESS_KEY: OZONE_ACCESS_KEY
+      OZONE_SECRET_KEY: OZONE_SECRET_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: ozone
+      baseUri: https://localhost:9878
+      description: "Apache Ozone S3-Compatible API"
+      authentication:
+        type: apikey
+        key: Authorization
+        value: "{{OZONE_ACCESS_KEY}}"
+        placement: header
+      resources:
+        - name: buckets
+          path: /
+          description: "Bucket management"
+          operations:
+            - name: listBuckets
+              method: GET
+              description: "List all buckets"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: objects
+          path: /{bucket}
+          description: "Object management"
+          operations:
+            - name: listObjects
+              method: GET
+              description: "List objects in bucket"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: ozone-api
+      description: "Unified REST API for Ozone object storage."
+      resources:
+        - path: /v1/buckets
+          name: buckets
+          operations:
+            - method: GET
+              name: list-buckets
+              description: "List all buckets"
+              call: "ozone.listBuckets"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/buckets/{bucket}/objects
+          name: objects
+          operations:
+            - method: GET
+              name: list-objects
+              description: "List objects"
+              call: "ozone.listObjects"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+    - type: mcp
+      port: 9090
+      namespace: ozone-mcp
+      transport: http
+      description: "MCP server for AI-assisted Ozone object storage management."
+      tools:
+        - name: list-buckets
+          description: "List all object storage buckets"
+          hints:
+            readOnly: true
+          call: "ozone.listBuckets"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-bucket
+          description: "Create a new storage bucket"
+          hints:
+            readOnly: false
+          call: "ozone.createBucket"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-objects
+          description: "List objects in a bucket"
+          hints:
+            readOnly: true
+          call: "ozone.listObjects"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: put-object
+          description: "Upload an object to a bucket"
+          hints:
+            readOnly: false
+          call: "ozone.putObject"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-object
+          description: "Download an object from a bucket"
+          hints:
+            readOnly: true
+          call: "ozone.getObject"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: delete-object
+          description: "Delete an object from a bucket"
+          hints:
+            readOnly: false
+            destructive: true
+          call: "ozone.deleteObject"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: delete-bucket
+          description: "Delete an empty bucket"
+          hints:
+            readOnly: false
+            destructive: true
+          call: "ozone.deleteBucket"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: head-object
+          description: "Get metadata for an object"
+          hints:
+            readOnly: true
+          call: "ozone.headObject"
+          outputParameters:
+            - type: object
+              mapping: "$."

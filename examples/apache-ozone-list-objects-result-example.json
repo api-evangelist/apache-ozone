@@ -1,0 +1,10 @@
+{
+  "name": "example-name",
+  "prefix": "example",
+  "maxKeys": 1234,
+  "isTruncated": true,
+  "nextContinuationToken": "example",
+  "contents": [
+    {}
+  ]
+}

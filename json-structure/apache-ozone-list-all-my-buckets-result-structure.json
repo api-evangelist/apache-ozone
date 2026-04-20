@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-ozone/refs/heads/main/json-structure/apache-ozone-list-all-my-buckets-result-structure.json",
+  "description": "ListAllMyBucketsResult schema from Apache Ozone",
+  "type": "object",
+  "properties": {
+    "owner": {
+      "$ref": "#/components/schemas/Owner"
+    },
+    "buckets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Bucket"
+      }
+    }
+  },
+  "name": "ListAllMyBucketsResult"
+}

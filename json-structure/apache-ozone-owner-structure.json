@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-ozone/refs/heads/main/json-structure/apache-ozone-owner-structure.json",
+  "description": "Owner schema from Apache Ozone",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "ozone-user-001"
+    },
+    "displayName": {
+      "type": "string",
+      "example": "ozone-admin"
+    }
+  },
+  "name": "Owner"
+}

@@ -1,0 +1,77 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "ozon": "https://ozone.apache.org/schema/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "ListAllMyBucketsResult": "ozon:ListAllMyBucketsResult",
+    "Owner": "ozon:Owner",
+    "Bucket": "ozon:Bucket",
+    "ListObjectsResult": "ozon:ListObjectsResult",
+    "Object": "ozon:Object",
+    "owner": {
+      "@id": "ozon:owner",
+      "@type": "xsd:string"
+    },
+    "buckets": {
+      "@id": "ozon:buckets",
+      "@container": "@set"
+    },
+    "id": {
+      "@id": "ozon:id",
+      "@type": "xsd:string"
+    },
+    "displayName": {
+      "@id": "ozon:displayName",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "ozon:name",
+      "@type": "schema:name"
+    },
+    "creationDate": {
+      "@id": "ozon:creationDate",
+      "@type": "xsd:string"
+    },
+    "storageClass": {
+      "@id": "ozon:storageClass",
+      "@type": "xsd:string"
+    },
+    "prefix": {
+      "@id": "ozon:prefix",
+      "@type": "xsd:string"
+    },
+    "maxKeys": {
+      "@id": "ozon:maxKeys",
+      "@type": "xsd:integer"
+    },
+    "isTruncated": {
+      "@id": "ozon:isTruncated",
+      "@type": "xsd:boolean"
+    },
+    "nextContinuationToken": {
+      "@id": "ozon:nextContinuationToken",
+      "@type": "xsd:string"
+    },
+    "contents": {
+      "@id": "ozon:contents",
+      "@container": "@set"
+    },
+    "key": {
+      "@id": "ozon:key",
+      "@type": "xsd:string"
+    },
+    "lastModified": {
+      "@id": "ozon:lastModified",
+      "@type": "xsd:string"
+    },
+    "etag": {
+      "@id": "ozon:etag",
+      "@type": "xsd:string"
+    },
+    "size": {
+      "@id": "ozon:size",
+      "@type": "xsd:integer"
+    }
+  }
+}

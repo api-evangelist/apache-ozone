@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-ozone/refs/heads/main/json-structure/apache-ozone-bucket-structure.json",
+  "description": "Bucket schema from Apache Ozone",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "my-bucket"
+    },
+    "creationDate": {
+      "type": "datetime",
+      "example": "2026-04-19T10:00:00Z"
+    },
+    "storageClass": {
+      "type": "string",
+      "example": "STANDARD"
+    }
+  },
+  "name": "Bucket"
+}
