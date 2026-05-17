@@ -52,7 +52,7 @@ common:
   url: vocabulary/apache-ozone-vocabulary.yaml
 - type: NaftikoCapability
   url: capabilities/ozone-workflow.yaml
-- type: JSON-LD
+- type: JSONLD
   url: json-ld/apache-ozone-context.jsonld
 - type: Features
   data:
