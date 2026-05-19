@@ -1,0 +1,158 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Apache Ozone S3-Compatible API — Objects
+  description: 'Apache Ozone S3-Compatible API — Objects. 4 operations. Lead operation: Apache Ozone Put Object. Self-contained
+    Naftiko capability covering one Apache Ozone business surface.'
+  tags:
+  - Apache Ozone
+  - Objects
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APACHE_OZONE_API_KEY: APACHE_OZONE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: s3-objects
+    baseUri: https://{host}
+    description: Apache Ozone S3-Compatible API — Objects business capability. Self-contained, no shared references.
+    resources:
+    - name: bucket-key
+      path: /{bucket}/{key}
+      operations:
+      - name: putobject
+        method: PUT
+        description: Apache Ozone Put Object
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+          description: MIME type of the object
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: getobject
+        method: GET
+        description: Apache Ozone Get Object
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteobject
+        method: DELETE
+        description: Apache Ozone Delete Object
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: headobject
+        method: HEAD
+        description: Apache Ozone Head Object
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: s3-objects-rest
+    port: 8080
+    description: REST adapter for Apache Ozone S3-Compatible API — Objects. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/{bucket}/{key}
+      name: bucket-key
+      description: REST surface for bucket-key.
+      operations:
+      - method: PUT
+        name: putobject
+        description: Apache Ozone Put Object
+        call: s3-objects.putobject
+        with:
+          Content-Type: rest.Content-Type
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getobject
+        description: Apache Ozone Get Object
+        call: s3-objects.getobject
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteobject
+        description: Apache Ozone Delete Object
+        call: s3-objects.deleteobject
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: HEAD
+        name: headobject
+        description: Apache Ozone Head Object
+        call: s3-objects.headobject
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: s3-objects-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Apache Ozone S3-Compatible API — Objects. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: apache-ozone-put-object
+      description: Apache Ozone Put Object
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: s3-objects.putobject
+      with:
+        Content-Type: tools.Content-Type
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-ozone-get-object
+      description: Apache Ozone Get Object
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: s3-objects.getobject
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-ozone-delete-object
+      description: Apache Ozone Delete Object
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: s3-objects.deleteobject
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-ozone-head-object
+      description: Apache Ozone Head Object
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: s3-objects.headobject
+      outputParameters:
+      - type: object
+        mapping: $.

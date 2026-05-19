@@ -1,0 +1,201 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Apache Ozone S3-Compatible API — Buckets
+  description: 'Apache Ozone S3-Compatible API — Buckets. 5 operations. Lead operation: Apache Ozone List Buckets. Self-contained
+    Naftiko capability covering one Apache Ozone business surface.'
+  tags:
+  - Apache Ozone
+  - Buckets
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APACHE_OZONE_API_KEY: APACHE_OZONE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: s3-buckets
+    baseUri: https://{host}
+    description: Apache Ozone S3-Compatible API — Buckets business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: listbuckets
+        method: GET
+        description: Apache Ozone List Buckets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: bucket
+      path: /{bucket}
+      operations:
+      - name: createbucket
+        method: PUT
+        description: Apache Ozone Create Bucket
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: listobjects
+        method: GET
+        description: Apache Ozone List Objects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: prefix
+          in: query
+          type: string
+          description: Object key prefix filter
+        - name: delimiter
+          in: query
+          type: string
+          description: Delimiter for grouping keys
+        - name: max-keys
+          in: query
+          type: integer
+          description: Maximum number of keys to return
+        - name: continuation-token
+          in: query
+          type: string
+          description: Pagination token
+      - name: deletebucket
+        method: DELETE
+        description: Apache Ozone Delete Bucket
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: headbucket
+        method: HEAD
+        description: Apache Ozone Head Bucket
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: s3-buckets-rest
+    port: 8080
+    description: REST adapter for Apache Ozone S3-Compatible API — Buckets. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: GET
+        name: listbuckets
+        description: Apache Ozone List Buckets
+        call: s3-buckets.listbuckets
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/{bucket}
+      name: bucket
+      description: REST surface for bucket.
+      operations:
+      - method: PUT
+        name: createbucket
+        description: Apache Ozone Create Bucket
+        call: s3-buckets.createbucket
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: listobjects
+        description: Apache Ozone List Objects
+        call: s3-buckets.listobjects
+        with:
+          prefix: rest.prefix
+          delimiter: rest.delimiter
+          max-keys: rest.max-keys
+          continuation-token: rest.continuation-token
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletebucket
+        description: Apache Ozone Delete Bucket
+        call: s3-buckets.deletebucket
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: HEAD
+        name: headbucket
+        description: Apache Ozone Head Bucket
+        call: s3-buckets.headbucket
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: s3-buckets-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Apache Ozone S3-Compatible API — Buckets. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: apache-ozone-list-buckets
+      description: Apache Ozone List Buckets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: s3-buckets.listbuckets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-ozone-create-bucket
+      description: Apache Ozone Create Bucket
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: s3-buckets.createbucket
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-ozone-list-objects
+      description: Apache Ozone List Objects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: s3-buckets.listobjects
+      with:
+        prefix: tools.prefix
+        delimiter: tools.delimiter
+        max-keys: tools.max-keys
+        continuation-token: tools.continuation-token
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-ozone-delete-bucket
+      description: Apache Ozone Delete Bucket
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: s3-buckets.deletebucket
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-ozone-head-bucket
+      description: Apache Ozone Head Bucket
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: s3-buckets.headbucket
+      outputParameters:
+      - type: object
+        mapping: $.
