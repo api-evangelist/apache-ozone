@@ -36,9 +36,9 @@ apis:
     url: https://ozone.apache.org/docs/current/
   - type: OpenAPI
     url: openapi/apache-ozone-s3-api.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/s3-buckets.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/s3-objects.yaml
 maintainers:
 - FN: Kin Lane
