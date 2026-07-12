@@ -44,6 +44,10 @@ maintainers:
 - FN: Kin Lane
   email: info@apievangelist.com
 common:
+- type: VulnerabilityDisclosure
+  url: security/apache-ozone-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/apache-ozone-domain-security.yml
 - type: GitHubOrganization
   url: https://github.com/apache/ozone
 - type: Documentation
@@ -54,6 +58,8 @@ common:
   url: vocabulary/apache-ozone-vocabulary.yaml
 - type: JSONLD
   url: json-ld/apache-ozone-context.jsonld
+- type: Blog
+  url: https://ozone.apache.org/blog/rss.xml
 - type: Features
   data:
   - name: S3-Compatible API
