@@ -1,0 +1,13 @@
+{
+  "repo": "apache-ozone",
+  "feeds": [
+    {
+      "source": "https://ozone.apache.org/blog/rss.xml",
+      "feed_url": "https://ozone.apache.org/blog/rss.xml",
+      "title": "Apache Ozone Blog",
+      "saved": 2
+    }
+  ],
+  "fetched": "2026-07-11T11:43:46Z",
+  "post_count": 6
+}
