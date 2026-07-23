@@ -1,0 +1,134 @@
+openapi: 3.0.3
+info:
+  title: Apache Ozone S3-Compatible Buckets Objects API
+  description: Apache Ozone provides an S3-compatible REST API for object storage operations including bucket and key management, multipart uploads, and access control lists.
+  version: 1.4.0
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    url: https://ozone.apache.org/
+servers:
+- url: https://{host}
+  description: Apache Ozone S3 Gateway
+  variables:
+    host:
+      default: localhost:9878
+tags:
+- name: Objects
+paths:
+  /{bucket}/{key}:
+    put:
+      operationId: putObject
+      summary: Apache Ozone Put Object
+      description: Upload an object to a bucket.
+      tags:
+      - Objects
+      parameters:
+      - $ref: '#/components/parameters/bucket'
+      - $ref: '#/components/parameters/key'
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        description: MIME type of the object
+      requestBody:
+        required: true
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          description: Object uploaded
+          headers:
+            ETag:
+              schema:
+                type: string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    get:
+      operationId: getObject
+      summary: Apache Ozone Get Object
+      description: Download an object from a bucket.
+      tags:
+      - Objects
+      parameters:
+      - $ref: '#/components/parameters/bucket'
+      - $ref: '#/components/parameters/key'
+      responses:
+        '200':
+          description: Object content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Object not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteObject
+      summary: Apache Ozone Delete Object
+      description: Delete an object from a bucket.
+      tags:
+      - Objects
+      parameters:
+      - $ref: '#/components/parameters/bucket'
+      - $ref: '#/components/parameters/key'
+      responses:
+        '204':
+          description: Object deleted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    head:
+      operationId: headObject
+      summary: Apache Ozone Head Object
+      description: Get metadata for an object without downloading it.
+      tags:
+      - Objects
+      parameters:
+      - $ref: '#/components/parameters/bucket'
+      - $ref: '#/components/parameters/key'
+      responses:
+        '200':
+          description: Object metadata
+          headers:
+            Content-Length:
+              schema:
+                type: integer
+            ETag:
+              schema:
+                type: string
+            Last-Modified:
+              schema:
+                type: string
+        '404':
+          description: Object not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  parameters:
+    key:
+      name: key
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object key (path)
+      example: data/file.csv
+    bucket:
+      name: bucket
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Bucket name
+      example: my-bucket
+x-generated-from: documentation
