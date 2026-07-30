@@ -4,9 +4,21 @@ description: Apache Ozone is a scalable, redundant, and distributed object store
   an S3-compatible interface and a Hadoop-compatible file system interface for seamless integration with existing big data
   tools.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/apache-ozone.png
 tags:
 - Distributed Storage
 - Hadoop
@@ -19,23 +31,32 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/apache-ozone/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-- aid: apache-ozone:apache-ozone
-  name: Apache Ozone
-  description: Ozone provides an S3-compatible REST API for object storage operations, a Hadoop-compatible File System API
-    (o3fs, ofs), a Java client API for bucket and key management, and a Recon REST API for cluster monitoring.
+- aid: apache-ozone:apache-ozone-buckets-api
+  name: Apache Ozone Buckets API
+  description: The Buckets API from Apache Ozone — 2 operation(s) for buckets.
   humanURL: https://ozone.apache.org/docs/current/
   tags:
-  - Hadoop
-  - Object Storage
-  - REST
-  - S3
-  - Apache
-  - Open Source
+  - Buckets
   properties:
+  - type: OpenAPI
+    url: openapi/apache-ozone-buckets-api-openapi.yml
   - type: Documentation
     url: https://ozone.apache.org/docs/current/
+  - type: X-NaftikoCapability
+    url: capabilities/s3-buckets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/s3-objects.yaml
+- aid: apache-ozone:apache-ozone-objects-api
+  name: Apache Ozone Objects API
+  description: The Objects API from Apache Ozone — 1 operation(s) for objects.
+  humanURL: https://ozone.apache.org/docs/current/
+  tags:
+  - Objects
+  properties:
   - type: OpenAPI
-    url: openapi/apache-ozone-s3-api.yaml
+    url: openapi/apache-ozone-objects-api-openapi.yml
+  - type: Documentation
+    url: https://ozone.apache.org/docs/current/
   - type: X-NaftikoCapability
     url: capabilities/s3-buckets.yaml
   - type: X-NaftikoCapability
