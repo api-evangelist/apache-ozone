@@ -1,0 +1,16 @@
+{
+  "provider": "apache-ozone",
+  "sources": [
+    "apache-ozone-buckets-api-openapi.yml",
+    "apache-ozone-objects-api-openapi.yml"
+  ],
+  "outputs": [
+    "apache-ozone-buckets-api-openapi.yml",
+    "apache-ozone-objects-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
