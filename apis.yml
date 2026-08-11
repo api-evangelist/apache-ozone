@@ -42,10 +42,6 @@ apis:
     url: openapi/apache-ozone-buckets-api-openapi.yml
   - type: Documentation
     url: https://ozone.apache.org/docs/current/
-  - type: X-NaftikoCapability
-    url: capabilities/s3-buckets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/s3-objects.yaml
 - aid: apache-ozone:apache-ozone-objects-api
   name: Apache Ozone Objects API
   description: The Objects API from Apache Ozone — 1 operation(s) for objects.
@@ -57,10 +53,6 @@ apis:
     url: openapi/apache-ozone-objects-api-openapi.yml
   - type: Documentation
     url: https://ozone.apache.org/docs/current/
-  - type: X-NaftikoCapability
-    url: capabilities/s3-buckets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/s3-objects.yaml
 maintainers:
 - FN: Kin Lane
   email: info@apievangelist.com
