@@ -1,0 +1,129 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache Ozone S3-Compatible Buckets API",
+    "version": "1.4.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Buckets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache Ozone List Objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/:bucket",
+            "params": [
+              {
+                "name": "bucket",
+                "value": "my-bucket",
+                "type": "path",
+                "description": "Bucket name"
+              },
+              {
+                "name": "prefix",
+                "value": "",
+                "type": "query",
+                "description": "Object key prefix filter"
+              },
+              {
+                "name": "delimiter",
+                "value": "",
+                "type": "query",
+                "description": "Delimiter for grouping keys"
+              },
+              {
+                "name": "max-keys",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of keys to return"
+              },
+              {
+                "name": "continuation-token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token"
+              }
+            ]
+          },
+          "docs": "List objects in a bucket with optional prefix, delimiter, and pagination."
+        },
+        {
+          "info": {
+            "name": "Apache Ozone Create Bucket",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}/:bucket",
+            "params": [
+              {
+                "name": "bucket",
+                "value": "my-bucket",
+                "type": "path",
+                "description": "Bucket name"
+              }
+            ]
+          },
+          "docs": "Create a new S3-compatible bucket in Ozone."
+        },
+        {
+          "info": {
+            "name": "Apache Ozone Delete Bucket",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}/:bucket",
+            "params": [
+              {
+                "name": "bucket",
+                "value": "my-bucket",
+                "type": "path",
+                "description": "Bucket name"
+              }
+            ]
+          },
+          "docs": "Delete an empty bucket."
+        },
+        {
+          "info": {
+            "name": "Apache Ozone Head Bucket",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{host}/:bucket",
+            "params": [
+              {
+                "name": "bucket",
+                "value": "my-bucket",
+                "type": "path",
+                "description": "Bucket name"
+              }
+            ]
+          },
+          "docs": "Check if a bucket exists and you have permission to access it."
+        },
+        {
+          "info": {
+            "name": "Apache Ozone List Buckets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/"
+          },
+          "docs": "List all buckets owned by the authenticated user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

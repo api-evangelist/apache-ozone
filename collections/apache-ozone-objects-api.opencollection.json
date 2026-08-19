@@ -1,0 +1,124 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache Ozone S3-Compatible Buckets Objects API",
+    "version": "1.4.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Objects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache Ozone Get Object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/:bucket/:key",
+            "params": [
+              {
+                "name": "bucket",
+                "value": "my-bucket",
+                "type": "path",
+                "description": "Bucket name"
+              },
+              {
+                "name": "key",
+                "value": "data/file.csv",
+                "type": "path",
+                "description": "Object key (path)"
+              }
+            ]
+          },
+          "docs": "Download an object from a bucket."
+        },
+        {
+          "info": {
+            "name": "Apache Ozone Put Object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}/:bucket/:key",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "bucket",
+                "value": "my-bucket",
+                "type": "path",
+                "description": "Bucket name"
+              },
+              {
+                "name": "key",
+                "value": "data/file.csv",
+                "type": "path",
+                "description": "Object key (path)"
+              }
+            ]
+          },
+          "docs": "Upload an object to a bucket."
+        },
+        {
+          "info": {
+            "name": "Apache Ozone Delete Object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}/:bucket/:key",
+            "params": [
+              {
+                "name": "bucket",
+                "value": "my-bucket",
+                "type": "path",
+                "description": "Bucket name"
+              },
+              {
+                "name": "key",
+                "value": "data/file.csv",
+                "type": "path",
+                "description": "Object key (path)"
+              }
+            ]
+          },
+          "docs": "Delete an object from a bucket."
+        },
+        {
+          "info": {
+            "name": "Apache Ozone Head Object",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{host}/:bucket/:key",
+            "params": [
+              {
+                "name": "bucket",
+                "value": "my-bucket",
+                "type": "path",
+                "description": "Bucket name"
+              },
+              {
+                "name": "key",
+                "value": "data/file.csv",
+                "type": "path",
+                "description": "Object key (path)"
+              }
+            ]
+          },
+          "docs": "Get metadata for an object without downloading it."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
