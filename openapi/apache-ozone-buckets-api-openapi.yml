@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Apache Ozone S3-Compatible Buckets API
   description: Apache Ozone provides an S3-compatible REST API for object storage operations including bucket and key management, multipart uploads, and access control lists.
@@ -119,37 +119,7 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    bucket:
-      name: bucket
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Bucket name
-      example: my-bucket
   schemas:
-    Object:
-      type: object
-      properties:
-        key:
-          type: string
-          example: data/file.csv
-        lastModified:
-          type: string
-          format: date-time
-          example: '2026-04-19T10:00:00Z'
-        etag:
-          type: string
-          example: '"a1b2c3d4e5f6"'
-        size:
-          type: integer
-          example: 1048576
-        storageClass:
-          type: string
-          example: STANDARD
-        owner:
-          $ref: '#/components/schemas/Owner'
     Bucket:
       type: object
       properties:
@@ -181,6 +151,27 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Bucket'
+    Object:
+      type: object
+      properties:
+        key:
+          type: string
+          example: data/file.csv
+        lastModified:
+          type: string
+          format: date-time
+          example: '2026-04-19T10:00:00Z'
+        etag:
+          type: string
+          example: '"a1b2c3d4e5f6"'
+        size:
+          type: integer
+          example: 1048576
+        storageClass:
+          type: string
+          example: STANDARD
+        owner:
+          $ref: '#/components/schemas/Owner'
     ListObjectsResult:
       type: object
       properties:
@@ -202,4 +193,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Object'
+  parameters:
+    bucket:
+      name: bucket
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Bucket name
+      example: my-bucket
 x-generated-from: documentation
