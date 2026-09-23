@@ -1,8 +1,7 @@
 {
   "provider": "apache-ozone",
   "sources": [
-    "apache-ozone-buckets-api-openapi.yml",
-    "apache-ozone-objects-api-openapi.yml"
+    "_ae-authored/apache-ozone-s3-api.yaml"
   ],
   "outputs": [
     "apache-ozone-buckets-api-openapi.yml",
@@ -12,9 +11,14 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "apache-ozone-buckets-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "apache-ozone-objects-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "apache-ozone-s3-api.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apache-ozone-s3-api.yaml: declared missing tag: Buckets",
+    "apache-ozone-s3-api.yaml: declared missing tag: Objects",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "apache-ozone-buckets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "apache-ozone-objects-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
