@@ -129,6 +129,37 @@ components:
       description: Bucket name
       example: my-bucket
   schemas:
+    ListAllMyBucketsResult:
+      type: object
+      properties:
+        owner:
+          $ref: '#/components/schemas/Owner'
+        buckets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bucket'
+    Bucket:
+      type: object
+      properties:
+        name:
+          type: string
+          example: my-bucket
+        creationDate:
+          type: string
+          format: date-time
+          example: '2026-04-19T10:00:00Z'
+        storageClass:
+          type: string
+          example: STANDARD
+    Owner:
+      type: object
+      properties:
+        id:
+          type: string
+          example: ozone-user-001
+        displayName:
+          type: string
+          example: ozone-admin
     ListObjectsResult:
       type: object
       properties:
@@ -171,35 +202,4 @@ components:
           example: STANDARD
         owner:
           $ref: '#/components/schemas/Owner'
-    Owner:
-      type: object
-      properties:
-        id:
-          type: string
-          example: ozone-user-001
-        displayName:
-          type: string
-          example: ozone-admin
-    Bucket:
-      type: object
-      properties:
-        name:
-          type: string
-          example: my-bucket
-        creationDate:
-          type: string
-          format: date-time
-          example: '2026-04-19T10:00:00Z'
-        storageClass:
-          type: string
-          example: STANDARD
-    ListAllMyBucketsResult:
-      type: object
-      properties:
-        owner:
-          $ref: '#/components/schemas/Owner'
-        buckets:
-          type: array
-          items:
-            $ref: '#/components/schemas/Bucket'
 x-generated-from: documentation
