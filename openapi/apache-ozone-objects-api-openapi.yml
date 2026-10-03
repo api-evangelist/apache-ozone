@@ -115,14 +115,6 @@ paths:
         dispatcher: FALLBACK
 components:
   parameters:
-    key:
-      name: key
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Object key (path)
-      example: data/file.csv
     bucket:
       name: bucket
       in: path
@@ -131,4 +123,12 @@ components:
         type: string
       description: Bucket name
       example: my-bucket
+    key:
+      name: key
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Object key (path)
+      example: data/file.csv
 x-generated-from: documentation

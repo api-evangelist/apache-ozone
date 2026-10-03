@@ -129,15 +129,6 @@ components:
       description: Bucket name
       example: my-bucket
   schemas:
-    ListAllMyBucketsResult:
-      type: object
-      properties:
-        owner:
-          $ref: '#/components/schemas/Owner'
-        buckets:
-          type: array
-          items:
-            $ref: '#/components/schemas/Bucket'
     Bucket:
       type: object
       properties:
@@ -151,6 +142,36 @@ components:
         storageClass:
           type: string
           example: STANDARD
+    Object:
+      type: object
+      properties:
+        key:
+          type: string
+          example: data/file.csv
+        lastModified:
+          type: string
+          format: date-time
+          example: '2026-04-19T10:00:00Z'
+        etag:
+          type: string
+          example: '"a1b2c3d4e5f6"'
+        size:
+          type: integer
+          example: 1048576
+        storageClass:
+          type: string
+          example: STANDARD
+        owner:
+          $ref: '#/components/schemas/Owner'
+    ListAllMyBucketsResult:
+      type: object
+      properties:
+        owner:
+          $ref: '#/components/schemas/Owner'
+        buckets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bucket'
     Owner:
       type: object
       properties:
@@ -181,25 +202,4 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Object'
-    Object:
-      type: object
-      properties:
-        key:
-          type: string
-          example: data/file.csv
-        lastModified:
-          type: string
-          format: date-time
-          example: '2026-04-19T10:00:00Z'
-        etag:
-          type: string
-          example: '"a1b2c3d4e5f6"'
-        size:
-          type: integer
-          example: 1048576
-        storageClass:
-          type: string
-          example: STANDARD
-        owner:
-          $ref: '#/components/schemas/Owner'
 x-generated-from: documentation
