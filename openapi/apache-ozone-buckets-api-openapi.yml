@@ -119,15 +119,6 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    bucket:
-      name: bucket
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Bucket name
-      example: my-bucket
   schemas:
     Bucket:
       type: object
@@ -142,6 +133,27 @@ components:
         storageClass:
           type: string
           example: STANDARD
+    ListObjectsResult:
+      type: object
+      properties:
+        name:
+          type: string
+          example: my-bucket
+        prefix:
+          type: string
+          example: data/
+        maxKeys:
+          type: integer
+          example: 1000
+        isTruncated:
+          type: boolean
+          example: false
+        nextContinuationToken:
+          type: string
+        contents:
+          type: array
+          items:
+            $ref: '#/components/schemas/Object'
     Object:
       type: object
       properties:
@@ -181,25 +193,13 @@ components:
         displayName:
           type: string
           example: ozone-admin
-    ListObjectsResult:
-      type: object
-      properties:
-        name:
-          type: string
-          example: my-bucket
-        prefix:
-          type: string
-          example: data/
-        maxKeys:
-          type: integer
-          example: 1000
-        isTruncated:
-          type: boolean
-          example: false
-        nextContinuationToken:
-          type: string
-        contents:
-          type: array
-          items:
-            $ref: '#/components/schemas/Object'
+  parameters:
+    bucket:
+      name: bucket
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Bucket name
+      example: my-bucket
 x-generated-from: documentation
