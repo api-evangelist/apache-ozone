@@ -1,0 +1,25 @@
+edges:
+- partner_name: Amazon Web Services
+  partner: amazon-web-services
+  partner_match: shape-anchor
+  channel: provider-built
+  relationship: compatible
+  direction: provider-built
+  shape: aws-s3
+  type: contract
+  degree: declared-unqualified
+  evidence: https://github.com/api-evangelist/apache-ozone/blob/main/openapi/apache-ozone-buckets-api-openapi.yml#L3
+  evidence_kind: own-contract
+  quote: 'title: Apache Ozone S3-Compatible Buckets API'
+  structural_match:
+    file: apache-ozone/openapi/apache-ozone-buckets-api-openapi.yml
+    ops:
+    - CreateBucket
+    - DeleteBucket
+    - HeadBucket
+    - ListBuckets
+    - ListObjects
+  detected_by: sweep-shape-compat.py
+  first_seen: '2026-10-13'
+generated: '2026-10-13'
+method: searched
