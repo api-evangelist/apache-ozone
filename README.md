@@ -1,4 +1,4 @@
-# Apache Ozone (apache-ozone)
+# Apache Ozone
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,121 +66,166 @@
 
 Apache Ozone is a scalable, redundant, and distributed object store optimized for big data workloads. It provides an S3-compatible interface and a Hadoop-compatible file system interface for seamless integration with existing big data tools.
 
-**URL:** [https://raw.githubusercontent.com/api-evangelist/apache-ozone/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/apache-ozone/refs/heads/main/apis.yml)
+**Areas:** Distributed Storage · Hadoop · Object Storage · S3 Compatible · Apache · Open Source
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Apache Ozone on APIs.io
 
-## Tags:
+Everything profiled for Apache Ozone is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/apache-ozone/](https://apis.io/providers/apache-ozone/)** — or go straight to one of the APIs or properties below.
 
- - Distributed Storage, Hadoop, Object Storage, S3-Compatible, Apache, Open Source
+### APIs (2)
 
-## Timestamps
+- [Apache Ozone Buckets API](https://apis.io/apis/apache-ozone/apache-ozone-buckets-api/) — The Buckets API from Apache Ozone — 2 operation(s) for buckets.
+- [Apache Ozone Objects API](https://apis.io/apis/apache-ozone/apache-ozone-objects-api/) — The Objects API from Apache Ozone — 1 operation(s) for objects.
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Apache Ozone
-Ozone provides an S3-compatible REST API for object storage operations, a Hadoop-compatible File System API (o3fs, ofs), a Java client API for bucket and key management, and a Recon REST API for cluster monitoring.
+#### Agentic access (1)
 
-**Human URL:** [https://ozone.apache.org/docs/current/](https://ozone.apache.org/docs/current/)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags:
+- [Apache Ozone Agentic Access](https://apis.io/agentic-access/apache-ozone/apache-ozone-agentic-access/)
 
- - Hadoop, Object Storage, REST, S3, Apache, Open Source
+#### JSON Schema (5)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://ozone.apache.org/docs/current/)
-- [OpenAPI](openapi/apache-ozone-s3-api.yaml)
+- [Bucket](https://apis.io/schemas/apache-ozone/apache-ozone-bucket/)
+- [ListAllMyBucketsResult](https://apis.io/schemas/apache-ozone/apache-ozone-list-all-my-buckets-result/)
+- [ListObjectsResult](https://apis.io/schemas/apache-ozone/apache-ozone-list-objects-result/)
+- [Object](https://apis.io/schemas/apache-ozone/apache-ozone-object/)
+- [Owner](https://apis.io/schemas/apache-ozone/apache-ozone-owner/)
 
-## Common Properties
+#### JSON Structure (5)
 
-- [GitHubOrganization](https://github.com/apache/ozone)
+Data models expressed in JSON Structure.
+
+- [Apache Ozone Bucket Structure](https://apis.io/json-structure/apache-ozone/apache-ozone-bucket-structure/)
+- [Apache Ozone List All My Buckets Result Structure](https://apis.io/json-structure/apache-ozone/apache-ozone-list-all-my-buckets-result-structure/)
+- [Apache Ozone List Objects Result Structure](https://apis.io/json-structure/apache-ozone/apache-ozone-list-objects-result-structure/)
+- [Apache Ozone Object Structure](https://apis.io/json-structure/apache-ozone/apache-ozone-object-structure/)
+- [Apache Ozone Owner Structure](https://apis.io/json-structure/apache-ozone/apache-ozone-owner-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Apache Ozone Context](https://apis.io/jsonld/apache-ozone/apache-ozone-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Apache Ozone Vocabulary](https://apis.io/vocabularies/apache-ozone/apache-ozone-vocabulary/)
+
+#### Examples (5)
+
+Example requests and responses.
+
+- [Apache Ozone Bucket Example](https://apis.io/examples/apache-ozone/apache-ozone-bucket-example/)
+- [Apache Ozone List All My Buckets Result Example](https://apis.io/examples/apache-ozone/apache-ozone-list-all-my-buckets-result-example/)
+- [Apache Ozone List Objects Result Example](https://apis.io/examples/apache-ozone/apache-ozone-list-objects-result-example/)
+- [Apache Ozone Object Example](https://apis.io/examples/apache-ozone/apache-ozone-object-example/)
+- [Apache Ozone Owner Example](https://apis.io/examples/apache-ozone/apache-ozone-owner-example/)
+
+#### Collections (2)
+
+Postman and Open Collection request collections.
+
+- [Apache Ozone S3-Compatible Buckets API](https://apis.io/collections/apache-ozone/open-apache-ozone-buckets-api/)
+- [Apache Ozone S3-Compatible Buckets Objects API](https://apis.io/collections/apache-ozone/open-apache-ozone-objects-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Apache Ozone — jsonschema rules](https://apis.io/rules/apache-ozone/apache-ozone-jsonschema-spectral-rules/)
+- [Apache Ozone API Rules](https://apis.io/rules/apache-ozone/apache-ozone-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Apache Ozone Domain Security](https://apis.io/security/apache-ozone/apache-ozone-domain-security/)
+- [Apache Ozone Vulnerability Disclosure](https://apis.io/security/apache-ozone/apache-ozone-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Apache Ozone Plans Pricing](https://apis.io/plans/apache-ozone/apache-ozone-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Apache Ozone Rate Limits](https://apis.io/rate-limits/apache-ozone/apache-ozone-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Apache Ozone Finops](https://apis.io/finops/apache-ozone/apache-ozone-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.apache.org/)
 - [Documentation](https://ozone.apache.org/)
-- [SpectralRules](rules/apache-ozone-spectral-rules.yml)
-- [Vocabulary](vocabulary/apache-ozone-vocabulary.yaml)
-- [NaftikoCapability](capabilities/ozone-workflow.yaml)
-- [JSON-LD](json-ld/apache-ozone-context.jsonld)
+- [Blog](https://ozone.apache.org/blog/rss.xml)
+- [GitHub](https://github.com/apache/ozone)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| S3-Compatible API | Fully compatible with Amazon S3 API for object storage operations |
-| HDFS-Compatible | Hadoop-compatible file system interface (o3fs, ofs) for existing Hadoop workloads |
-| Multi-Tenant | Volume/bucket hierarchy with multi-tenant access controls |
-| Replication | Configurable replication for data durability |
-| Erasure Coding | Erasure coding support for storage efficiency |
-| Scalability | Scale to billions of files with petabytes of data |
+**Kin Score 18.7** — emerging · rubric 0.24.0 · scored 2026-10-17
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 19.6 |
+| Contract governance | 27.3 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 11.9 |
+| Access clarity | 7.9 |
 
-| Name | Description |
-|------|-------------|
-| Data Lake Storage | Store raw data in a highly scalable and S3-compatible data lake |
-| Hadoop Migration | Replace HDFS with Ozone for petabyte-scale Hadoop clusters |
-| Application Object Storage | Use S3-compatible API for application file and media storage |
-| Backup and Archive | Cost-effective backup and long-term data archival |
+**Agent readiness 15.4** — agent-aware
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-| Name | Description |
-|------|-------------|
-| Apache Hadoop | Native HDFS-compatible file system integration |
-| Apache Spark | Direct Spark data source for reading and writing ORC/Parquet |
-| Apache Hive | Hive metastore integration for data lake querying |
-| Amazon S3 SDK | Compatible with AWS SDK for S3 operations |
-| Kubernetes | Container-native deployment with CSI driver support |
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
 
-## Artifacts
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/apache-ozone/](https://apis.io/providers/apache-ozone/).
 
-Machine-readable API specifications organized by format.
+## How this profile is made
 
-### OpenAPI
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-- [Apache Ozone S3-Compatible API](openapi/apache-ozone-s3-api.yaml)
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Apache Ozone: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-### JSON Schema
+## Open an issue
 
-- [Bucket](json-schema/apache-ozone-bucket-schema.json)
-- [Object](json-schema/apache-ozone-object-schema.json)
-- [List Objects Result](json-schema/apache-ozone-list-objects-result-schema.json)
-- [And more...](json-schema/)
-
-### JSON Structure
-
-- [Apache Ozone JSON Structures](json-structure/)
-
-### JSON-LD
-
-- [Apache Ozone Context](json-ld/apache-ozone-context.jsonld)
-
-### Examples
-
-- [Apache Ozone Examples](examples/)
-
-## Capabilities
-
-Naftiko capabilities organized as shared per-API definitions composed into customer-facing workflows.
-
-### Workflow Capabilities
-
-| Workflow | APIs Combined | Tools | Persona |
-|----------|--------------|-------|---------|
-| [Object Storage Workflow](capabilities/ozone-workflow.yaml) | Apache Ozone | 8 | Data Engineer, Application Developer |
-
-## Vocabulary
-
-- [Apache Ozone Vocabulary](vocabulary/apache-ozone-vocabulary.yaml) — Unified taxonomy mapping object storage resources, actions, workflows, and personas
-
-## Rules
-
-- [Apache Ozone Spectral Rules](rules/apache-ozone-spectral-rules.yml) — Rules enforcing Apache Ozone S3-compatible API conventions
-
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** info@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/apache-ozone/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
